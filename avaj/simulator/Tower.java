@@ -1,7 +1,5 @@
 package avaj.simulator;
 
-import java.util.List;
-
 import avaj.simulator.aircraft.Flyable;
 
 import java.util.ArrayList;
