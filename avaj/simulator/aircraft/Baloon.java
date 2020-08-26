@@ -16,12 +16,17 @@ public class Baloon extends Aircraft implements Flyable {
 
     public void updateConditions() {
         String weather = tower.getWeather(this.coordinates);
-        HashMap<String, String> message = new HashMap<String, String>() {{
+        HashMap<String, String> message = new HashMap<String, String>() {
+            /**
+            *
+            */
+            private static final long serialVersionUID = 1L;
+
+            {
             put("SUN", "It's so hot, I’m sweating in spots I didn’t know I had.");
             put("RAIN", "Rain, rain, go away! Please come back another day!");
             put("FOG", "So much fog, I can't see a thing! Should've invested in those fog lights..");
             put("SNOW", "Oh no, not the snow! I not prepared for this.");
-            put("GROUNDED", "Oh no, we're about to be gounded. Please no crash, please no crash!");
         }};
 
         if (weather.equals("SUN")) 
@@ -49,5 +54,17 @@ public class Baloon extends Aircraft implements Flyable {
                 coordinates.getHeight() - 15
         );
 
+        System.out.println("Baloon# " + this.name + "(" + this.id + "): " + message.get(weather));
+        if (this.coordinates.getHeight() == 0) {
+            System.out.println("Baloon# " + this.name + "(" + this.id + "): landing.");
+            this.tower.unregister(this);
+            System.out.println("Tower says: Baloon# " + this.name + "(" + this.id + ") unregistered from weather tower.");
+        }
+    }
+
+    public void registerTower(WeatherTower weatherTower) {
+        this.tower = weatherTower;
+        this.tower.register(this);
+        System.out.println("Tower says: Baloon# " + this.name + "(" + this.id + ") registered to weather tower.");
     }
 }
