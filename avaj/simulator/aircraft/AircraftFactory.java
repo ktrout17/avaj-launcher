@@ -18,7 +18,7 @@ public class AircraftFactory {
         }
         else if (type.toLowerCase().equals("jetplane")) {
             System.out.println(type + " " + name + " has been created.");
-            return new Jetplane(name, coordinates);
+            return new JetPlane(name, coordinates);
         }
         return null;
     }
