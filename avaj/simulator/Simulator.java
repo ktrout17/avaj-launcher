@@ -13,7 +13,7 @@ public class Simulator {
     public static void main(String[] args) throws SimException {
 
         if (args.length <= 0) {
-            System.out.println("Please enter simulation file.");
+            System.out.println("Please enter scenario file.");
             return;
         }
 
