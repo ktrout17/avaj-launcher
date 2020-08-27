@@ -22,7 +22,7 @@ public class Helicopter extends Aircraft implements Flyable {
             private static final long serialVersionUID = 1L;
 
             {
-            put("SUN", "It's so hot, we I had installed that AC.");
+            put("SUN", "It's so hot, wish I had installed that AC.");
             put("RAIN", "Ah rain my old friend, at least I fixed the wipers.");
             put("FOG", "So much fog, I can't see a thing! Radar, don't give in now.");
             put("SNOW", "Oh no, not the snow! I hope my rotor doesn't freeze.");

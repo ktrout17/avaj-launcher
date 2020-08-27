@@ -1,3 +1,3 @@
 #!/bin/sh
 
-java -cp avaj.simulator.Simulator
+java avaj.simulator.Simulator scenario.txt

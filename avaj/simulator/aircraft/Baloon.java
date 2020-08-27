@@ -25,7 +25,7 @@ public class Baloon extends Aircraft implements Flyable {
             put("SUN", "It's so hot, I’m sweating in spots I didn’t know I had.");
             put("RAIN", "Rain, rain, go away! Please come back another day!");
             put("FOG", "So much fog, I can't see a thing! Should've invested in those fog lights..");
-            put("SNOW", "Oh no, not the snow! I not prepared for this.");
+            put("SNOW", "Oh no, not the snow! I am not prepared for this.");
         }};
 
         if (weather.equals("SUN")) 
