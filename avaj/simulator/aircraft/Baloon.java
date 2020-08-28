@@ -5,9 +5,10 @@ import java.util.HashMap;
 import avaj.weather.Coordinates;
 import avaj.simulator.WeatherTower;
 import avaj.simulator.Logger;
+import avaj.simulator.SimException;
 
 public class Baloon extends Aircraft implements Flyable {
-    
+
     private WeatherTower tower;
 
     Baloon(String name, Coordinates coordinates) {
