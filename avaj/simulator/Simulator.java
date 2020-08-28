@@ -38,6 +38,10 @@ public class Simulator {
 
             try {
                 num_of_sims = Integer.parseInt(line);
+                if (num_of_sims < 0)
+                    throw new SimException("Error: Number of sims cannot be negative.");
+                if (num_of_sims == 0)
+                    throw new SimException("Error: Number of sims cannot be zero.");
             } catch (NumberFormatException e) {
                 throw new SimException("Error: Invalid format for simulation number.");
             }
@@ -62,17 +66,18 @@ public class Simulator {
                     throw new SimException("Error: Expected a number.");
                 }
             }
-            br.close();
             for (Flyable flyable: flyables)
-                flyable.registerTower(tower);
-
+            flyable.registerTower(tower);
+            
             for (int i = 0; i < num_of_sims; i++)
-                tower.changeWeather();
+            tower.changeWeather();
             
             System.out.println("\n" + num_of_sims + "/" + num_of_sims + " simulations have been run.");
             System.out.println("Results have been compiled in simulation.txt.");
+            br.close();
+
         } catch (IOException e) {
             System.out.println("Error with input/output.");
         }
-    }
+    } 
 }
