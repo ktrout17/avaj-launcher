@@ -1,25 +1,22 @@
 package avaj.simulator.aircraft;
 
+import avaj.simulator.SimException;
 import avaj.weather.Coordinates;
 
 public class AircraftFactory {
     
-    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height)
+            throws SimException {
 
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
 
-        if (type.toLowerCase().equals("baloon")) {
-            System.out.println(type + " " + name + " has been created.");
+        if (type.equals("Baloon"))
             return new Baloon(name, coordinates);
-        }
-        else if (type.toLowerCase().equals("helicopter")) {
-            System.out.println(type + " " + name + " has been created.");
+        else if (type.equals("Helicopter")) 
             return new Helicopter(name, coordinates);
-        }
-        else if (type.toLowerCase().equals("jetplane")) {
-            System.out.println(type + " " + name + " has been created.");
+        else if (type.equals("JetPlane"))
             return new JetPlane(name, coordinates);
-        }
-        return null;
+        else
+            throw new SimException("Error: Unknown type [" + type + "]");
     }
 }

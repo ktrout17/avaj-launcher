@@ -16,7 +16,7 @@ public class Logger {
             Logger.writer.close();
             
         FileOutputStream fos = new FileOutputStream(filename);
-        OutputStreamWriter osw = new OutputStreamWriter(fos);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, "utf-8");
         Logger.writer = new BufferedWriter(osw);
     }
 
@@ -27,7 +27,7 @@ public class Logger {
             writer.flush();
         } catch (IOException e) {
             System.out.println("Error trying to write to file.");
-            return;
+            System.exit(1);
         }
     }
 }

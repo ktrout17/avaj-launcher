@@ -2,6 +2,7 @@ package avaj.simulator.aircraft;
 
 import java.util.HashMap;
 
+import avaj.simulator.Logger;
 import avaj.simulator.WeatherTower;
 import avaj.weather.Coordinates;
 
@@ -53,17 +54,17 @@ public class Helicopter extends Aircraft implements Flyable {
                 coordinates.getHeight() - 12
         );
 
-        System.out.println("Helicopter# " + this.name + "(" + this.id + "): " + message.get(weather));
+        Logger.log("Helicopter# " + this.name + "(" + this.id + "): " + message.get(weather));
         if (this.coordinates.getHeight() == 0) {
-            System.out.println("Helicopter# " + this.name + "(" + this.id + "): landing.");
+            Logger.log("Helicopter# " + this.name + "(" + this.id + "): landing.");
             this.tower.unregister(this);
-            System.out.println("Tower says: Helicopter# " + this.name + "(" + this.id + ") unregistered from weather tower.");
+            Logger.log("Tower says: Helicopter# " + this.name + "(" + this.id + ") unregistered from weather tower.");
         }
     }
 
     public void registerTower(WeatherTower weatherTower) {
         this.tower = weatherTower;
         this.tower.register(this);
-        System.out.println("Tower says: Helicopter# " + this.name + "(" + this.id + ") registered to weather tower.");
+        Logger.log("Tower says: Helicopter# " + this.name + "(" + this.id + ") registered to weather tower.");
     }
 }
