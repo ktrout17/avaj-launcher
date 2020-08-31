@@ -2,7 +2,7 @@
 
 for file in ./bad_test_scenarios/*.txt
 do
-	if java avaj.simulator.Simulator $file; then
+	if java avaj.simulator.Simulator $file | grep -q "Error"; then
 		echo "avaj.Simulator.Simulator " $file
 		echo "OK!"
 	else

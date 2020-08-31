@@ -16,7 +16,7 @@ public class Simulator {
             System.out.println("Please enter scenario file.");
             return;
         } else {
-            System.out.println("\nScenario file is: " + args[0]);
+            System.out.println("Scenario file is: " + args[0]);
         }
 
         try {
@@ -45,7 +45,7 @@ public class Simulator {
             } catch (NumberFormatException e) {
                 throw new SimException("Error: Invalid format for simulation number.");
             }
-            System.out.println(num_of_sims + " simulations will be run.\n");
+            //System.out.println(num_of_sims + " simulations will be run.");
 
             String current_line;
 
@@ -67,12 +67,14 @@ public class Simulator {
                 }
             }
             for (Flyable flyable: flyables)
-            flyable.registerTower(tower);
+                flyable.registerTower(tower);
             
-            for (int i = 0; i < num_of_sims; i++)
-            tower.changeWeather();
+            for (int i = 1; i <= num_of_sims; i++) {
+                Logger.log("\n--------------------------------------------\n");
+                tower.changeWeather();
+            }
             
-            System.out.println("\n" + num_of_sims + "/" + num_of_sims + " simulations have been run.");
+            System.out.println(num_of_sims + "/" + num_of_sims + " simulations have been run.");
             System.out.println("Results have been compiled in simulation.txt.");
             br.close();
 

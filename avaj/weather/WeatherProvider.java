@@ -1,5 +1,7 @@
 package avaj.weather;
 
+// Handles all weather types
+
 public class WeatherProvider {
     
     private static WeatherProvider weatherProvider = new WeatherProvider();
@@ -16,6 +18,8 @@ public class WeatherProvider {
 
         return WeatherProvider.weatherProvider;
     }
+
+    // Algo for weather generation
 
     public String getCurrentWeather(Coordinates coordinates) {
 
