@@ -55,7 +55,7 @@ public class Helicopter extends Aircraft implements Flyable {
         );
 
         Logger.log("Helicopter#" + this.name + "(" + this.id + "): " + message.get(weather));
-        if (this.coordinates.getHeight() == 0) {
+        if (this.coordinates.getHeight() <= 0) {
             Logger.log("Helicopter#" + this.name + "(" + this.id + "): landing.");
             this.tower.unregister(this);
             Logger.log("Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower.");
