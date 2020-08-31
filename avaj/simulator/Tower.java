@@ -10,6 +10,8 @@ import java.util.List;
 public class Tower {
     
     private List<Flyable> observers = new ArrayList<>();
+    private List<Flyable> unregistered = new ArrayList<>();
+
 
     public void register (Flyable flyable) {
 
@@ -19,13 +21,15 @@ public class Tower {
 
     public void unregister(Flyable flyable) {
         
-        observers.remove(flyable);
+        if (!unregistered.contains(flyable))
+            unregistered.add(flyable);
     }
 
     protected void conditionChanged() {
 
-        for (int i = 0; i < observers.size(); i++) {
-            observers.get(i).updateConditions();
+        for (Flyable flyable : observers) {
+            flyable.updateConditions();
         }
+        observers.removeAll(unregistered);
     }
 }

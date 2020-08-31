@@ -13,7 +13,7 @@ public class Simulator {
     public static void main(String[] args) throws SimException {
 
         if (args.length <= 0) {
-            System.out.println("Please enter scenario file.");
+            System.out.println("Please add a scenario file as arg.");
             return;
         } else {
             System.out.println("Scenario file is: " + args[0]);
@@ -70,11 +70,11 @@ public class Simulator {
                 flyable.registerTower(tower);
             
             for (int i = 1; i <= num_of_sims; i++) {
-                Logger.log("\n--------------------------------------------\n");
+                Logger.log("\n" + i + "\n");
                 tower.changeWeather();
             }
             
-            System.out.println(num_of_sims + "/" + num_of_sims + " simulations have been run.");
+            System.out.println(num_of_sims + " simulations have been run.");
             System.out.println("Results have been compiled in simulation.txt.");
             br.close();
 
