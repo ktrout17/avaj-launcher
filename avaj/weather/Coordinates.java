@@ -9,6 +9,9 @@ public class Coordinates {
     // constructor initializes instances
     public Coordinates(int longitude, int latitude, int height) {
         
+        if (height < 0)
+            height = 0;
+
         this.longitude = longitude;
         this.latitude = latitude;
         this.height = height;
