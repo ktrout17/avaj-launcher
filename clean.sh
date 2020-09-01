@@ -1,6 +1,8 @@
 #!/bin/sh
 
+YELLOW='\e[33m'
+
 find . -name *.class -delete
 rm sources.txt
 rm simulation.txt
-echo "Cleanup complete"
+echo "${YELLOW}Cleanup complete"

@@ -57,6 +57,7 @@ public class Baloon extends Aircraft implements Flyable {
         Logger.log("Baloon#" + this.name + "(" + this.id + "): " + message.get(weather));
         if (this.coordinates.getHeight() <= 0) {
             Logger.log("Baloon#" + this.name + "(" + this.id + ") landing.");
+            Logger.log("Current coordinates: Longitude [" + this.coordinates.getLongitude() + "] Latitude [" + this.coordinates.getLatitude() + "] Height [" + this.coordinates.getHeight() + "]");
             this.tower.unregister(this);
             Logger.log("Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower.");
         }
